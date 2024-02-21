@@ -1,0 +1,27 @@
+---
+import Base from "../layouts/Base.astro";
+import Table from "../layouts/Table.astro";
+import Row from "../components/Row.astro";
+import Navbar from "../components/Navbar.astro";
+---
+
+<Base>
+    <Navbar
+        title="BOLT CTF"
+        menu={["Leaderboard", "Login"]}
+        photo="bg-error"
+        slot="navbar"
+    />
+    <Table>
+        <Row rank={1} name="mayhul" score={100} />
+        <Row rank={2} name="mayhul" score={100} />
+        <Row rank={3} name="mayhul" score={100} />
+        <Row rank={4} name="mayhul" score={100} />
+        <Row rank={5} name="mayhul" score={100} />
+        <Row rank={6} name="mayhul" score={100} />
+        <Row rank={7} name="mayhul" score={100} />
+        <Row rank={8} name="mayhul" score={100} />
+        <Row rank={9} name="mayhul" score={100} />
+        <Row rank={10} name="mayhul" score={100} />
+    </Table>
+</Base>

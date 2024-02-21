@@ -1,0 +1,54 @@
+---
+interface Props {
+    title: string;
+    description: string;
+    link: string;
+    tags: string[];
+}
+
+const { title, description, link, tags } = Astro.props;
+---
+
+<!--
+    1. Make it bahar click karke har jaye
+    2. Add tags 
+    3. Submit button
+ -->
+<div class="w-80 h-48">
+    <button
+        class="btn btn-outline flex-col w-full h-full"
+        onclick="my_modal_5.showModal()"
+    >
+        <div>{title}</div>
+        <div>
+            {tags.map((tag) => <div class="badge badge-secondary">{tag}</div>)}
+        </div>
+    </button>
+    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box">
+            <h3 class="font-bold text-lg">{title}</h3>
+            <p class="py-4">{description}</p>
+            <div><a href={link} class="link">download</a></div>
+
+            <!-- Inout box -->
+            <div class="join">
+                <input
+                    class="input input-bordered join-item"
+                    placeholder="Email"
+                />
+                <button class="btn join-item rounded-r-full">Subscribe</button>
+            </div>
+
+            <div class="flex gap-4 flex-wrap mt-14">
+                {
+                    tags.map((tag) => (
+                        <div class="badge badge-secondary">{tag}</div>
+                    ))
+                }
+            </div>
+        </div>
+        <form method="dialog" class="modal-backdrop">
+            <button>close</button>
+        </form>
+    </dialog>
+</div>

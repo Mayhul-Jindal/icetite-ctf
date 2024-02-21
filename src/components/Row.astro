@@ -1,0 +1,15 @@
+---
+interface Props {
+    rank: number;
+    name: string;
+    score: number;
+}
+
+const { rank, name, score } = Astro.props;
+---
+
+<tr class="hover">
+    <th>{rank}</th>
+    <td>{name}</td>
+    <td>{score}</td>
+</tr>
