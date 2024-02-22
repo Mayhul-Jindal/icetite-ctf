@@ -1,11 +1,17 @@
-<div class="overflow-x-auto mt-24">
+---
+interface Props {
+    headings: string[];
+}
+
+const { headings } = Astro.props;
+---
+
+<div class="overflow-x-auto">
     <table class="table text-center">
         <!-- head -->
         <thead>
             <tr>
-                <th>Rank</th>
-                <th>Name</th>
-                <th>Score</th>
+                {headings.map((heading) => <th>{heading}</th>)}
             </tr>
         </thead>
         <tbody>

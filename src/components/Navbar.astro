@@ -29,18 +29,26 @@ const { title, photo, menu } = Astro.props;
             >
                 {
                     menu.map((item) => {
-                        if (item == "Home") {
-                            return (
-                                <li>
-                                    <a href="/">{item}</a>
-                                </li>
-                            );
-                        } else {
-                            return (
-                                <li>
-                                    <a href={item.toLowerCase()}>{item}</a>
-                                </li>
-                            );
+                        {
+                            if (item === "Home") {
+                                return (
+                                    <li>
+                                        <a href="/">{item}</a>
+                                    </li>
+                                );
+                            } else if (item === "Logout") {
+                                return (
+                                    <li>
+                                        <a href="/api/auth/logout">{item}</a>
+                                    </li>
+                                );
+                            } else {
+                                return (
+                                    <li>
+                                        <a href={item.toLowerCase()}>{item}</a>
+                                    </li>
+                                );
+                            }
                         }
                     })
                 }

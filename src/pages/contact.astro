@@ -1,0 +1,20 @@
+---
+import Base from "../layouts/Base.astro";
+import Navbar from "../components/Navbar.astro";
+---
+
+<Base>
+    <Navbar
+        title="BOLT CTF"
+        menu={["Leaderboard", "Login"]}
+        photo="bg-error"
+        slot="navbar"
+    />
+
+    <p class="text-zinc-400 text-sm text-center mt-44">
+        Either <span class="text-error">you are not registered</span> for the event
+        or there might be some other <span class="text-error">issue</span>.<br/>
+        Please contact the event <span class="text-error">organizers</span> for further
+        assistance. See you soon!
+    </p>
+</Base>

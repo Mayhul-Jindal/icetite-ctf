@@ -1,6 +1,15 @@
 ---
 import Base from "../layouts/Base.astro";
 import Navbar from "../components/Navbar.astro";
+
+const { cookies, redirect } = Astro;
+
+const accessToken = cookies.get("sb-access-token");
+const refreshToken = cookies.get("sb-refresh-token");
+
+if (accessToken && refreshToken) {
+    return redirect("/");
+}
 ---
 
 <Base>
@@ -15,11 +24,14 @@ import Navbar from "../components/Navbar.astro";
     >
         <section class="w-full max-w-md">
             <h1 class="font-semibold text-xl w-full mb-1">Login</h1>
-            <p class="text-zinc-500 dark:text-zinc-400 text-sm mb-8 w-full">
-                Only registered students can participate.
+            <p class="text-zinc-400 text-sm mb-8 w-full">
+                Only <span class="text-accent">registered</span> students can participate.
+                <br />
+                Please contact <span class="text-accent">organizers</span> for more
+                information.
             </p>
             <form
-                action="/api/auth/signin"
+                action="/api/auth/login"
                 method="post"
                 class="w-full max-w-md mt-6 flex flex-col gap-2"
             >
