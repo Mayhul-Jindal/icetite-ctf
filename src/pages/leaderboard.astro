@@ -11,14 +11,10 @@ let photo: string = "bg-error";
 const accessToken = cookies.get("sb-access-token");
 const refreshToken = cookies.get("sb-refresh-token");
 
-let score = 0;
+
 if (accessToken && refreshToken) {
     navMenu = ["Home", "Leaderboard", "Logout"];
     photo = "bg-success";
-
-    const scoreResp = await fetch(Astro.url + "/../api/score/get");
-    let scoreData = await scoreResp.json();
-    score = scoreData.data[0];
 }
 
 const response = await fetch(Astro.url + "/../api/leaderboard/get");
@@ -29,7 +25,6 @@ let i = 1;
 
 <Base>
     <Navbar title="BOLT CTF" menu={navMenu} photo={photo} slot="navbar" />
-    <div class="font-extrabold text-center my-4">My Score: {score}</div>
     <Table headings={["Rank", "Name", "Score"]}>
         {
             leaderboardData.map((data: { name: string; score: number }) => (
