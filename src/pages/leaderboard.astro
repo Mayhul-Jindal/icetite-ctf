@@ -17,6 +17,7 @@ if (accessToken && refreshToken) {
 }
 
 
+console.log("leaderboard Link --> " + Astro.url + "/../api/leaderboard/get");
 const response = await fetch(Astro.url + "/../api/leaderboard/get");
 let leaderboardData = await response.json();
 leaderboardData = leaderboardData.data;
