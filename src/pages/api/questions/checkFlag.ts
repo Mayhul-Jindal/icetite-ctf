@@ -44,7 +44,7 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
     // update points of user here
     if (data[0].flag !== tryFlag) {
         // update the question solved by participant
-        return redirect(`/?message=${encodeURIComponent("try harder :)")}`)
+        return redirect(`/?message=${encodeURIComponent("try-harder")}`)
     }
 
     const { data: solvedData, error: solvedError } = await supabase
@@ -89,5 +89,5 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
         return redirect(`/`)
     }
 
-    return redirect(`/?message=${encodeURIComponent("Correct flag!")}`)
+    return redirect(`/?message=${encodeURIComponent("Correct-flag")}`)
 };
